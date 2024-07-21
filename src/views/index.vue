@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = window.$wujie?.props;
+const props = window?.$wujie?.props || {};
 console.log(1, props);
 
 const route = useRoute()

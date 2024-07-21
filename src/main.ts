@@ -24,3 +24,12 @@ for (const path in modules) {
 }
 
 app.mount('#app')
+
+
+declare global {
+  interface Window {
+    $wujie: {
+      props: Record<string, any>
+    }
+  }
+}
