@@ -3,11 +3,23 @@ const props = window?.$wujie?.props || {};
 console.log(1, props);
 
 const route = useRoute()
-const nameComp = computed(() => props?.name || route.query.name)
+const data = computed(() => {
+  const obj = {}
+  for (let key in params) {
+    obj[key] = props?.[key] || route.query?.[key]
+  }
+  return obj
+})
+const params = {
+  name: '',
+  size: '',
+  widget: '',
+  dragging: false,
+}
 </script>
 
 <template>
-  <component v-if="nameComp" :is="`Widget${nameComp.charAt(0).toUpperCase() + nameComp.slice(1)}`"
-    :dragging="props.dragging" :size="props.size" :widget="props.widget" />
+  <component v-if="data.name" :is="`Widget${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`"
+    :dragging="data.dragging" :size="data.size" :widget="data.widget" />
   <div v-else>无小组件</div>
 </template>
