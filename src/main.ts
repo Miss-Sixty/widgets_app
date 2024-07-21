@@ -1,8 +1,10 @@
 import './styles/index.css'
 import { createApp, defineAsyncComponent } from 'vue'
 import App from './App.vue'
+import router from './router'
 
 const app = createApp(App)
+app.use(router)
 
 const modules: any = import.meta.glob('@/views/**/index.vue')
 for (const path in modules) {
@@ -13,6 +15,5 @@ for (const path in modules) {
     app.component(componentName, defineAsyncComponent(modules[path]))
   }
 }
-
 
 app.mount('#app')
