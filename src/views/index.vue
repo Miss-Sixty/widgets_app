@@ -4,7 +4,7 @@ console.log(1, props);
 
 const route = useRoute()
 const data = computed(() => {
-  const obj = {}
+  const obj: any = {}
   for (let key in params) {
     obj[key] = props?.[key] || route.query?.[key]
   }

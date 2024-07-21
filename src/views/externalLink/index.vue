@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import SettingDialog from './components/SettingDialog.vue'
-
 const props = defineProps({
   widget: {
     type: Object,
@@ -63,6 +61,5 @@ defineExpose({ dialogSettingVisible })
     <span v-else="widgetData.iconType === 1" class="text-white" :style="autoTextSize">
       {{ widgetData.iconName }}
     </span>
-    <!--    <SettingDialog v-model="dialogSettingVisible" :size="size" :widget="widget" /> -->
   </div>
 </template>
