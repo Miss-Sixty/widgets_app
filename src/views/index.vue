@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = window?.$wujie?.props || {};
-console.log(1, props);
 
 const route = useRoute()
 const data = computed(() => {
@@ -16,10 +15,16 @@ const params = {
   widget: '',
   dragging: false,
 }
+const widgetRef = ref()
+window.$wujie?.bus.$on(data.value.widget.id, (callback) => {
+  callback({
+    setDialogVisible: (bl = false) => widgetRef.value.settingDialogVisible = bl
+  })
+});
 </script>
 
 <template>
-  <component v-if="data.name" :is="`Widget${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`"
+  <component ref="widgetRef" v-if="data.name" :is="`Widget${data.name.charAt(0).toUpperCase() + data.name.slice(1)}`"
     :dragging="data.dragging" :size="data.size" :widget="data.widget" />
   <div v-else>无小组件</div>
 </template>

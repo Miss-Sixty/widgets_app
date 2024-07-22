@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SettingDialog from "./components/SettingDialog.vue";
 const props = defineProps({
   widget: {
     type: Object,
@@ -18,7 +19,6 @@ const props = defineProps({
   }
 })
 
-const dialogSettingVisible = ref(false)
 
 const widgetData = computed(() => props.widget.widgetData || {})
 function toUrl() {
@@ -48,18 +48,20 @@ const autoTextSize = computed(() => {
     fontSize: fontSize + 'px'
   }
 })
-
-defineExpose({ dialogSettingVisible })
+const settingDialogVisible = ref(false)
+defineExpose({ settingDialogVisible })
 </script>
 
 <template>
   <div :title="widgetData.name" @click="toUrl" :style="{
     backgroundColor: widgetData.iconBgColor,
-  }" class="size-full cursor-pointer bg-white rounded-2xl flex items-center justify-center overflow-hidden">
+  }" class="size-full cursor-pointer bg-white rounded-xl flex items-center justify-center overflow-hidden">
     <img v-if="widgetData.iconUrl && widgetData.iconType === 0" draggable="false" class="select-none size-full"
       :src="widgetData.iconUrl">
     <span v-else="widgetData.iconType === 1" class="text-white" :style="autoTextSize">
       {{ widgetData.iconName }}
     </span>
+
+    <SettingDialog v-model="settingDialogVisible" />
   </div>
 </template>
