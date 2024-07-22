@@ -29,7 +29,8 @@ app.mount('#app')
 declare global {
   interface Window {
     $wujie: {
-      props: Record<string, any>
+      props: Record<string, any>,
+      bus: any
     }
   }
 }

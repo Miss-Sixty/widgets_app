@@ -23,7 +23,7 @@ const props = defineProps({
 const widgetData = computed(() => props.widget.widgetData || {})
 function toUrl() {
   if (props.dragging) return
-  if (props.type || (!widgetData.value.url)) return dialogSettingVisible.value = true
+  if (props.type || (!widgetData.value.url)) return settingDialogVisible.value = true
   const { url, host } = widgetData.value
   window.open(host || url)
 }

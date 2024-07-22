@@ -16,7 +16,7 @@ const params = {
   dragging: false,
 }
 const widgetRef = ref()
-window.$wujie?.bus.$on(data.value.widget.id, (callback) => {
+window.$wujie?.bus.$on(data.value.widget.id, (callback: any) => {
   callback({
     setDialogVisible: (bl = false) => widgetRef.value.settingDialogVisible = bl
   })
