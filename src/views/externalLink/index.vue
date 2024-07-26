@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SettingDialog from "./components/SettingDialog.vue";
+import SettingDialog from "./settingDialog.vue";
 const props = defineProps({
   widget: {
     type: Object,
