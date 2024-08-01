@@ -50,6 +50,8 @@ const autoTextSize = computed(() => {
 })
 const settingDialogVisible = ref(false)
 defineExpose({ settingDialogVisible })
+
+const baseUrl = import.meta.env.VITE_R2_BASE_URL
 </script>
 
 <template>
@@ -57,7 +59,7 @@ defineExpose({ settingDialogVisible })
     backgroundColor: widgetData.iconBgColor,
   }" class="size-full cursor-pointer bg-white rounded-xl flex items-center justify-center overflow-hidden">
     <img v-if="widgetData.iconUrl && widgetData.iconType === 0" draggable="false" class="select-none size-full"
-      :src="widgetData.iconUrl">
+      :src="baseUrl + widgetData.iconUrl">
     <span v-else="widgetData.iconType === 1" class="text-white" :style="autoTextSize">
       {{ widgetData.iconName }}
     </span>

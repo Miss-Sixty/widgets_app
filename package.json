@@ -16,6 +16,7 @@
     "@primevue/themes": "^4.0.1",
     "@vueuse/core": "^10.11.0",
     "primevue": "^4.0.1",
+    "qiankun": "^2.10.16",
     "vue": "^3.4.34",
     "vue-router": "^4.4.0"
   },
