@@ -2,16 +2,15 @@ export default {
   key: 'externalLink',
   name: '外链',
   text: '点击后可跳转到指定网址',
-  shadow: false,
-  data: {
+  widgetData: {
     url: '',
-    name: '',
+    name: '外链',
     host: '',
     iconType: 0,
     iconUrl: '',
     iconName: '',
     iconBgColor: '',
-    iconColorType: 1,//0:固定色 1:自选色
+    iconColorType: 1 //0:固定色 1:自选色
   },
   sizes: [
     {

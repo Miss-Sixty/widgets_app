@@ -25,12 +25,11 @@ for (const path in modules) {
 
 app.mount('#app')
 
-
 declare global {
   interface Window {
     $wujie: {
-      props: Record<string, any>,
-      bus: any
+      props?: { [key: string]: any };
+      bus: any,
     }
   }
 }

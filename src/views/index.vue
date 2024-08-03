@@ -21,6 +21,7 @@ window.$wujie?.bus.$on(data.value.widget.id, (callback: any) => {
     setDialogVisible: (bl = false) => widgetRef.value.settingDialogVisible = bl
   })
 });
+
 </script>
 
 <template>
